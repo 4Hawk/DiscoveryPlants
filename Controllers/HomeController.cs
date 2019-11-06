@@ -14,8 +14,8 @@ namespace DiscoveryPlants.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        
+        public IActionResult Logueo()
         {
             return View();
         }

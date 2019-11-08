@@ -15,10 +15,29 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
         
-        public IActionResult Logueo()
+
+        public IActionResult Donar()
         {
             return View();
         }
+
+        public IActionResult ListadoP()
+        {
+            return View();
+        }
+
+        public IActionResult SobreNosotros()
+        {
+            return View();
+        }
+
+        public IActionResult PlantasDoc()
+        {
+            return View();
+        }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

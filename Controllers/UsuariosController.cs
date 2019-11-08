@@ -8,12 +8,12 @@ namespace DiscoveryPlants.Controllers
         {
             return View();
         }
-        public IActionResult Registrar()
+        public IActionResult IniciarSesion()
         {
             return View();
         }
 
-        public IActionResult Logueo()
+        public IActionResult Registrarse()
         {
             return View();
         }

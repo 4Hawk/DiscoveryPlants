@@ -1,27 +1,5 @@
 @model CrearUsuarios
-<h1>Registrarse</h1>
-<form method="post">
-    <div asp-validation-summary="All"></div>
-    <div class="form-group">
-        <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" class="form-control">
-    </div>
-    <div class="form-group">
-        <label asp-for="Correo"></label>
-        <input asp-for="Correo" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Ingrese su Contraseña</label>
-        <input asp-for="ContraseñaP" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Verifique su Contraseña</label>
-        <input asp-for="ContraseñaS" class="form-control">
-    </div>
-    
-    <button class="btn btn-primary">Registrar</button>
 
-</form>
 
 
 <!-- Aqui rellenar lo de arriba!-->
@@ -30,20 +8,41 @@
     <div class="container">
       <div class="row">
         <div class="mx-auto col-lg-6 col-10">
-          <h1>Bienvenido</h1>
-          <p class="mb-3">Estas a punto de convertirte en un descubridor más.&nbsp;</p>
-          <form class="text-left">
-            <div class="form-group"> <label for="form16">Nombres</label> <input type="text" class="form-control" id="form16" placeholder="Johann W. Goethe"> </div>
-            <div class="form-group"> <label for="form17">Apellidos</label> <input type="text" class="form-control" id="form17" placeholder="Werther Inc."> </div>
-            <div class="form-group"> <label for="form18">Email</label> <input type="email" class="form-control" id="form18" placeholder="j.goethe@werther.com"> </div>
-            <div class="form-row">
-              <div class="form-group col-md-6"> <label for="form19">Contraseña</label> <input type="password" class="form-control" id="form19"> </div>
-              <div class="form-group col-md-6"> <label for="form20">Confirmar Contraseña</label> <input type="password" class="form-control" id="form20"> </div>
+        <h1>Bienvenido</h1>
+        <p class="mb-3">Estas a punto de convertirte en un descubridor más.&nbsp;</p>
+        <form class="text-left" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group"> 
+                <label for="form16" asp-for="Nombre"></label> 
+                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
             </div>
             <div class="form-group">
-              <div class="form-check"> <input class="form-check-input" type="checkbox" id="form21" value="on"> <label class="form-check-label" for="form21">Aceptas nuestros terminos y Condiciones</label> </div>
+                <label for="form17" asp-for="Apellido"></label>
+                <input type="text" class="form-control" id="form17" placeholder="Apellidos" asp-for="Apellido"> 
             </div>
-          </form><button type="submit" class="btn btn-primary">Registrarse</button>
+            <div class="form-group">
+                <label for="form18" asp-for="Correo"></label>
+                <input type="email" class="form-control" id="form18" placeholder="j.goethe@werther.com" asp-for="Correo">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="form19" asp-for="ContraseñaP">Contraseña</label>
+                    <input type="password" class="form-control" id="form19" asp-for="ContraseñaP">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="form20" asp-for="ContraseñaS">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="form20" asp-for="ContraseñaS">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="form21" value="on">
+                    <label class="form-check-label" for="form21">Aceptas nuestros terminos y Condiciones</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+          
         </div>
       </div>
     </div>

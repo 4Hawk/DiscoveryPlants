@@ -7,6 +7,10 @@ namespace DiscoveryPlants.Models
         public string Nombre { get; set; }
         
         [Required]
+        public string Apellido { get; set; }
+
+        
+        [Required]
         [EmailAddress]
         public string Correo { get; set; }
 

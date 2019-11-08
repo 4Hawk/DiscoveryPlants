@@ -1,19 +1,5 @@
 @model Logueo
-<h1>Iniciar sesión</h1>
-<form method="post">
-    <div asp-validation-summary="All"></div>
 
-    <div class="form-group">
-        <label asp-for="Correo"></label>
-        <input asp-for="Correo" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Ingrese su Contraseña</label>
-        <input asp-for="Password" class="form-control">
-    </div>   
-    <button class="btn btn-primary">Iniciar sesión</button>
-
-</form>
 
 <!-- Aqui rellenar lo del Login-->
 
@@ -30,11 +16,15 @@
                     <h1 class="text-center text-secondary my-4">Iniciar Sesión</h1>
                   </div>
                 </div>
-                <form>
-                  <div class="form-group"> <input type="email" class="form-control bg-dark text-white" id="form9" placeholder="Ingrese su email"> </div>
-                  <div class="form-group mb-3"> <input type="password" class="form-control bg-dark text-white" placeholder="Ingrese su Contraseña" id="form10"> <small class="form-text text-muted text-right">
-                      <a href="#"> Recuperar Contraseña</a>
-                    </small> </div> <button type="submit" class="btn btn-primary">Iniciar</button>
+                <form method="post">
+                  <div asp-validation-summary="All"></div>
+                  <div class="form-group">
+                    <input type="email" class="form-control bg-dark text-white" id="form9" placeholder="Ingrese su email" asp-for="Correo">
+                  </div>
+                  <div class="form-group mb-3">
+                    <input type="password" class="form-control bg-dark text-white" placeholder="Ingrese su Contraseña" id="form10" asp-for="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Iniciar</button>
                 </form>
               </div>
             </div>

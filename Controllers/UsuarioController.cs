@@ -18,5 +18,20 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
 
+        public IActionResult Salir()
+        {
+            return View();
+        }
+
+        public IActionResult PanelUsuario()
+        {
+            return View();
+        }
+
+        public IActionResult PanelAdmi()
+        {
+            return View();
+        }
+
     }
 }

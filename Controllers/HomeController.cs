@@ -26,6 +26,16 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
 
+        public IActionResult Consejos()
+        {
+            return View();
+        }
+
+        public IActionResult ListadoGeneral()
+        {
+            return View();
+        }
+
         public IActionResult SobreNosotros()
         {
             return View();

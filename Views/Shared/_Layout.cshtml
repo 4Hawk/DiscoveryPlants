@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>Restaurant Elegant - Pingendo template</title>
+  <title>DiscoveryPlants</title>
   <meta name="description" content="Free Bootstrap 4 Pingendo Elegant template for restaurant and food">
   <meta name="keywords" content="Pingendo restaurant food elegant free template bootstrap 4">
   <!-- CSS dependencies -->
@@ -32,16 +32,25 @@
             <a class="nav-link text-light" asp-controller="home" asp-action="ListadoP"><b>Plantas</b></a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" asp-controller="Home" asp-action="Consejos"><b>Consejos</b></a>
+            <a class="nav-link" asp-controller="home" asp-action="consejos"><b>Consejos</b></a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" asp-controller="Home" asp-action="Donar"><b>Donar</b></a>
+            <a class="nav-link text-light" asp-controller="Home" asp-action="SobreNosotros" ><b>Sobre Nosotros</b></a>
           </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" asp-controller="Home" asp-action="SobreNosotros" ><b>Sobre Nosotros</b></a>
-          </li>
+          @if (User.Identity.IsAuthenticated) {
+            <li class="nav-item mx-2 text-light">
+              <a class="nav-link" asp-controller="usuario" asp-action="panelusuario"><b>Discover</b></a>
+            </li>
+          }
         </ul>
-        <a class="btn navbar-btn btn-secondary mx-2" asp-controller="usuario"  asp-action="registrarse"><b>Registrarse</b></a>
+         @if (User.Identity.IsAuthenticated) {
+              
+              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="usuario"  asp-action="panel">Cerrar Sesión</a>
+              
+        }else{
+              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="usuario"  asp-action="registrarse"><b>Registrarse</b></a>
+        }
+        
       </div>
     </div>
   </nav>

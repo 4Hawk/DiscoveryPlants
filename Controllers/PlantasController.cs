@@ -4,8 +4,12 @@ namespace DiscoveryPlants.Controllers
 {
     public class PlantasController : Controller
     {
-        public IActionResult RegistarPlanta()
+        public IActionResult RegistrarPlanta()
         {
+            return View();
+        }
+
+        public IActionResult RegistrarCategoria(){
             return View();
         }
     }

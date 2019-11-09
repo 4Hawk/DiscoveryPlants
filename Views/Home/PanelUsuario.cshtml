@@ -1,0 +1,45 @@
+@model Plantas
+<h1>Registro de Plantas</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Caracteristicas"></label>
+        <textarea asp-for="Caracteristicas" rows="7" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Usos"></label>
+        <textarea asp-for="Usos" rows="3" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InfoAdicional"></label>
+        <textarea asp-for="InfoAdicional" rows="3" class="form-control"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Foto"></label>
+        <input asp-for="Foto" class="form-control">
+    </div>
+    
+    
+    <div class="form-group">
+        <label asp-for="CategoriaAsig"></label>
+        <select asp-for="CategoriaId" class="form-control">
+            @foreach (var item in (List<Categorias>)ViewBag.CategoriasTab)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </select>
+    </div>
+    
+    <button class="btn btn-primary">Registrar</button>
+</form>

@@ -10,6 +10,13 @@ namespace DiscoveryPlants.Controllers
 {
     public class HomeController : Controller
     {
+        private DiscoveryContext _context;
+
+        public HomeController(DiscoveryContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -46,6 +53,12 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
 
+
+        public IActionResult PanelUsuario()
+        {
+            
+            return View();
+        }   
 
 
 

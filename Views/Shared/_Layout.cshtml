@@ -39,16 +39,16 @@
           </li>
           @if (User.Identity.IsAuthenticated) {
             <li class="nav-item mx-2 text-light">
-              <a class="nav-link" asp-controller="usuario" asp-action="panelusuario"><b>Discover</b></a>
+              <a class="nav-link" asp-controller="cuenta" asp-action="panelusuario"><b>Discover</b></a>
             </li>
           }
         </ul>
          @if (User.Identity.IsAuthenticated) {
               
-              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="usuario"  asp-action="panel">Cerrar Sesión</a>
+              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="cuenta"  asp-action="salir">Cerrar Sesión</a>
               
         }else{
-              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="usuario"  asp-action="registrarse"><b>Registrarse</b></a>
+              <a class="btn navbar-btn btn-secondary mx-2" asp-controller="cuenta"  asp-action="registrarse"><b>Registrarse</b></a>
         }
         
       </div>

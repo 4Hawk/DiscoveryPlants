@@ -42,6 +42,15 @@
               <a class="nav-link" asp-controller="cuenta" asp-action="panelusuario"><b>Discover</b></a>
             </li>
           }
+          @if (User.IsInRole("dba")){
+            <li class="nav-item mx-2 text-light">
+              <a class="nav-link" asp-controller="cuenta" asp-action="panelusuario"><b>Discover</b></a>
+            </li>
+            
+             <li class="nav-item mx-2 text-light">
+              <a class="nav-link" asp-controller="administrador" asp-action="index"><b>Discover</b></a>
+            </li>
+          }
         </ul>
          @if (User.Identity.IsAuthenticated) {
               

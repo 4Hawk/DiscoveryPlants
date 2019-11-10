@@ -28,8 +28,9 @@ namespace DiscoveryPlants.Controllers
             ViewBag.Usuarios = _um.Users.ToList();
             ViewBag.Roles = _rm.Roles.ToList();
 
-            return View();
+            return View("Administrador","Index");
         }
+
 
         [HttpPost]
         public IActionResult AsociarRol(string usuario, string rol) {
@@ -37,7 +38,7 @@ namespace DiscoveryPlants.Controllers
 
             var resultado = _um.AddToRoleAsync(user, rol).Result;
 
-            return RedirectToAction("indexpanel", "dba");
+            return RedirectToAction("cuenta", "paneldba");
         }
 
         public IActionResult CrearRol()
@@ -126,7 +127,13 @@ namespace DiscoveryPlants.Controllers
         }
 
 
-    
+        public IActionResult Paneldba()
+        {
+            ViewBag.Usuarios = _um.Users.ToList();
+            ViewBag.Roles = _rm.Roles.ToList();
+          
+            return View();
+        }
 
 
 

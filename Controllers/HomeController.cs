@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DiscoveryPlants.Models;
 
+
 namespace DiscoveryPlants.Controllers
 {
     public class HomeController : Controller
@@ -30,7 +31,10 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult ListadoP()
         {
-            return View();
+            var ter = _context.PlantasTab.Take(3).ToList().OrderBy(x=>x.FechaRegistro);
+            var viewModel = new Listas();
+            viewModel.ListPlantas = ter;
+            return View(ter);
         }
 
         public IActionResult Consejos()
@@ -50,15 +54,28 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult PlantasDoc()
         {
+
             return View();
         }
 
 
         public IActionResult PanelUsuario()
         {
-            ViewBag.CategoriasTab = _context.CategoriasTab.ToList();
+            ViewBag.Categorias = _context.CategoriasTab.ToList();
             return View();
         }   
+
+        [HttpPost]
+        public IActionResult PanelUsuario(Plantas pa)
+        {
+            if(ModelState.IsValid){
+                _context.Add(pa);
+                _context.SaveChanges();
+                return RedirectToAction("ListadoP","Home");
+            }
+            ViewBag.Categorias = _context.CategoriasTab.ToList();
+            return View(pa);
+        }
 
 
 

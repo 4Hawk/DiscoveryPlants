@@ -39,16 +39,13 @@
           </li>
           @if (User.Identity.IsAuthenticated) {
             <li class="nav-item mx-2 text-light">
-              <a class="nav-link" asp-controller="cuenta" asp-action="panelusuario"><b>Discover</b></a>
+              <a class="nav-link" asp-controller="home" asp-action="panelusuario"><b>Aportar</b></a>
             </li>
           }
           @if (User.IsInRole("dba")){
-            <li class="nav-item mx-2 text-light">
-              <a class="nav-link" asp-controller="cuenta" asp-action="panelusuario"><b>Discover</b></a>
-            </li>
             
              <li class="nav-item mx-2 text-light">
-              <a class="nav-link" asp-controller="administrador" asp-action="index"><b>Discover</b></a>
+              <a class="nav-link" asp-controller="cuenta" asp-action="paneldba"><b>Panel de Control</b></a>
             </li>
           }
         </ul>
@@ -66,27 +63,7 @@
   <!-- Cover -->
         @RenderBody()
   <!-- Footer -->
-  <div class="text-center bg-secondary">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 p-4">
-          <h2 class="mb-4">Contactanos</h2>
-          <p class="m-0">
-            <a href="tel:+246 - 542 550 5462" class="text-white">+246 - 542 550 5462</a>
-          </p>
-          <p contenteditable="true">DPlants@gmail.com</p>
-        </div>
-        <div class="col-md-4 p-4">
-          <h2 class="mb-4">Ubicación</h2>
-          <p>
-            <a href="https://www.google.it/maps" target="_blank" class="text-white">23 Fake Street <br>Seattle, WA 00000</a>
-          </p>
-        </div>
-        <div class="col-md-4 p-4">
-          <h2 class="mb-4">Horarios de Atención</h2>
-          <p>11:00 - 15:00 &amp; 19:00 - 00:00 Tue/Fri <br>11:00 - 15:00 &amp; 19:00 - 02:00 Sat/Sun</p>
-        </div>
-      </div>
+  
       <div class="row flex-row bg-primary">
         <div class="col-md-12 mt-3" style="">
           <p class="text-center text-muted">© Copyright 2018 Discovery Plants- All rights reserved. </p>

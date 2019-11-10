@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -20,5 +21,11 @@ namespace DiscoveryPlants.Models
         public Categorias CategoriaAsig { get; set; }
         public string InfoAdicional{get;set;}
         public int CategoriaId { get; set; }
+        public DateTime FechaRegistro { get; set; }
+
+        public Plantas()
+        {
+           FechaRegistro = DateTime.Now;
+        }
     }
 }

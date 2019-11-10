@@ -1,0 +1,31 @@
+@model Plantas
+
+<form method="post" asp-controller="Home" asp-action="IngresarPlanta">
+    <div asp-validation-summary="All"></div>
+            <div class="form-group"> 
+                <label for="form16" asp-for="Nombre"></label> 
+                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="form17" asp-for="Usos"></label>
+                <input type="text" class="form-control" id="form17" placeholder="Usos" asp-for="Usos"> 
+            </div>
+            <div class="form-group">
+                <label for="form18" asp-for="Caracteristicas"></label>
+                <input type="text" class="form-control" id="form18" placeholder="Caracteristicas" asp-for="Caracteristicas">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="form19" asp-for="Foto"></label>
+                    <input type="text" class="form-control" id="form19" asp-for="Foto">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="form20" asp-for="Ubicacion"></label>
+                    <input type="text" class="form-control" id="form20" asp-for="Ubicacion">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Registrar</button>
+
+
+</form>

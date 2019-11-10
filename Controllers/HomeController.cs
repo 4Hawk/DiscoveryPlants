@@ -22,7 +22,24 @@ namespace DiscoveryPlants.Controllers
         {
             return View();
         }
-        
+        public IActionResult IngresarPlanta (){
+
+            var Planta = _context.PlantasTab.ToList();
+            ViewBag.Planta=Planta;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult IngresarPlanta (Plantas m){
+            if(ModelState.IsValid){
+                _context.Add(m);
+                _context.SaveChanges();
+                return RedirectToAction("index");
+            }
+            
+            return View(m);
+        }
+
 
         public IActionResult Donar()
         {

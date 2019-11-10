@@ -48,10 +48,10 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult ListadoP()
         {
-            var ter = _context.PlantasTab.Take(3).ToList().OrderBy(x=>x.FechaRegistro);
+            var Plantas = _context.PlantasTab.Take(3).ToList();
             var viewModel = new Listas();
-            viewModel.ListPlantas = ter;
-            return View(ter);
+            viewModel.ListPlantas = Plantas;
+            return View(viewModel);
         }
 
         public IActionResult Consejos()
@@ -74,7 +74,7 @@ namespace DiscoveryPlants.Controllers
 
             return View();
         }
-
+        
 
         public IActionResult PanelUsuario()
         {

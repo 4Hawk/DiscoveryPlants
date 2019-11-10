@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using DiscoveryPlants.Models;
 
-namespace DiscoveryPlants_1.Models
+namespace DiscoveryPlants.Models
 {
     public class Categorias
     {

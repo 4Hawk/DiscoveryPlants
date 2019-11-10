@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-using DiscoveryPlants_1.Models;
+
 
 namespace DiscoveryPlants.Models
 {
     public class Plantas
     {
-        public int PlantaId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
 

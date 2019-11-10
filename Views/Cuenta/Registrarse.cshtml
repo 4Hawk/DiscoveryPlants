@@ -1,16 +1,12 @@
 @model CrearUsuarios
 
-
-
-<!-- Aqui rellenar lo de arriba!-->
-
  <div class="py-5 text-center bg-info" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
     <div class="container">
       <div class="row">
         <div class="mx-auto col-lg-6 col-10">
         <h1>Bienvenido</h1>
         <p class="mb-3">Estas a punto de convertirte en un descubridor más.&nbsp;</p>
-        <form class="text-left" method="post">
+        <form class="text-left" method="post" asp-controller="cuenta" asp-action="registrarse">
             <div asp-validation-summary="All"></div>
             <div class="form-group"> 
                 <label for="form16" asp-for="Nombre"></label> 

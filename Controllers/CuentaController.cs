@@ -53,7 +53,7 @@ namespace DiscoveryPlants.Controllers
 
             var resultado = _rm.CreateAsync(rol).Result;
 
-            return RedirectToAction("indexpanel", "dba");
+            return RedirectToAction("index", "Administrador");
         }
 
         

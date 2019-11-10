@@ -56,7 +56,7 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult PanelUsuario()
         {
-            
+            ViewBag.CategoriasTab = _context.CategoriasTab.ToList();
             return View();
         }   
 

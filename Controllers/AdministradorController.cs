@@ -1,23 +1,25 @@
 using DiscoveryPlants.Models;
-using DiscoveryPlants_1.Models;
+
 using Microsoft.AspNetCore.Mvc;
 
-namespace DiscoveryPlants_1.Controllers
+namespace DiscoveryPlants.Controllers
 {
-    public class DbaController:Controller
+    public class AdministradorController:Controller
     {
         private DiscoveryContext _context;
 
-        public DbaController(DiscoveryContext context)
+        public AdministradorController(DiscoveryContext context)
         {
             _context = context;
         }
 
-        public IActionResult IndexPanel()
+        public IActionResult Index()
         {
           //TODO: Implement Realistic Implementation
           return View();
         }
+
+      
         public IActionResult RegistrarCategoria()
         {
           //TODO: Implement Realistic Implementation

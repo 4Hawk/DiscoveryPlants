@@ -1,29 +1,53 @@
 @model Listas
 
-<h1>Plantas</h1>
- 
-
-
-<div class="row">
-  @foreach (var item in Model.ListPlantas )
-  {
-      <div class="col-md-3 text-center my-2">
-          <a href=""><img src="@item.Foto" ></a>
-          <h2>@item.Nombre</h2>
-      
-          
-          
-
-          @if (item.CategoriaAsig != null) {
-              <h2>@item.CategoriaAsig.Nombre</h2>
-          }else{
-              <h2>"Esta planta aun no tiene una categoria asignada"</h2>
-          }
-
+  <div class="py-5 text-white" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://images.pexels.com/photos/401213/pexels-photo-401213.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 p-0">
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/w77zPAtVTuI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+          </div>
+        </div>
+        <div class="p-5 col-lg-7 d-flex flex-column justify-content-center">
+          <h3 class="display-4 mb-3">Descubre junto a Jhoe</h3>
+          <p class="lead mb-0">Jhoe es un aficionado al descubrimiento de nuevas plantas alrededor de todo el Mundo. Aqui te dejamos un video en el cual nos enseña el proceso de crecimiento de una planta.</p>
+        </div>
       </div>
-  }
-      
+    </div>
+  </div>
+    <div class="p-0 py-2 m-0 my-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 text-center">Últimos Descubrimientos</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </div>  
+<h1>Plantas</h1>
+
 
   
+<div class="m-0 my-1 py-2">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.ListPlantas )
+            {
+                <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="@item.Foto" style="">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="text-center">@item.Nombre</h2>
+                                </div>
+                            </div>
+                            <p class="">Esta flor pertenece a la familia de las Acacias y fue descubierta hace una semana por unos agricultores de Brasil. Aún no se realizan investigaciones sobre dicha rareza.</p>
+                            <div class="row">
+                                <div class="col-md-12"><a class="btn btn-secondary d-flex justify-content-center" href="#">Leer más</a></div>
+                            </div>
+                    </div>
+            }
+
+        </div>  
+      
+    </div>
+</div>

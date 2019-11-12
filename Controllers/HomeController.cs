@@ -78,19 +78,14 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult PanelUsuario()
         {
-            ViewBag.Categorias = _context.CategoriasTab.ToList();
+           
             return View();
         }   
 
         [HttpPost]
         public IActionResult PanelUsuario(Plantas pa)
         {
-            if(ModelState.IsValid){
-                _context.Add(pa);
-                _context.SaveChanges();
-                return RedirectToAction("ListadoP","Home");
-            }
-            ViewBag.Categorias = _context.CategoriasTab.ToList();
+            
             return View(pa);
         }
 

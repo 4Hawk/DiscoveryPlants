@@ -24,8 +24,8 @@ namespace DiscoveryPlants.Controllers
         }
         public IActionResult IngresarPlanta (){
 
-            var Planta = _context.PlantasTab.ToList();
-            ViewBag.Planta=Planta;
+            var Categorias = _context.CategoriasTab.ToList();
+            ViewBag.Categorias=Categorias;
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult ListadoP()
         {
-            var Plantas = _context.PlantasTab.Take(3).ToList();
+            var Plantas = _context.PlantasTab.OrderByDescending(x=>x.FechaRegistro).Take(3).ToList();
             var viewModel = new Listas();
             viewModel.ListPlantas = Plantas;
             return View(viewModel);

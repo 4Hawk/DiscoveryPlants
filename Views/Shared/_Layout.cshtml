@@ -37,13 +37,14 @@
           <li class="nav-item mx-2">
             <a class="nav-link text-light" asp-controller="Home" asp-action="SobreNosotros" ><b>Sobre Nosotros</b></a>
           </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-light" asp-controller="Home" asp-action="IngresarPlanta" ><b>Registrar Planta</b></a>
-          </li>
+          
           @if (User.Identity.IsAuthenticated) {
             <li class="nav-item mx-2 text-light">
               <a class="nav-link" asp-controller="home" asp-action="panelusuario"><b>Aportar</b></a>
             </li>
+            <li class="nav-item mx-2">
+            <a class="nav-link text-light" asp-controller="Home" asp-action="IngresarPlanta" ><b>Registrar Planta</b></a>
+          </li>
           }
           @if (User.IsInRole("dba")){
             
@@ -55,6 +56,7 @@
          @if (User.Identity.IsAuthenticated) {
               
               <a class="btn navbar-btn btn-secondary mx-2" asp-controller="cuenta"  asp-action="salir">Cerrar Sesión</a>
+
               
         }else{
               <a class="btn navbar-btn btn-secondary mx-2" asp-controller="cuenta"  asp-action="registrarse"><b>Registrarse</b></a>

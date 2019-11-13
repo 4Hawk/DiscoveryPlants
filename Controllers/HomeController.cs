@@ -61,7 +61,10 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult ListadoGeneral()
         {
-            return View();
+            var Plantas = _context.PlantasTab.OrderByDescending(x=>x.FechaRegistro).ToList();
+            var viewModel = new Listas();
+            viewModel.ListPlantas = Plantas;
+            return View(viewModel);
         }
 
         public IActionResult SobreNosotros()

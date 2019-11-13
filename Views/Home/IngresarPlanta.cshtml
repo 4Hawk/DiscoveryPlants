@@ -33,12 +33,14 @@
                                     <label for="form20" asp-for="Ubicacion"></label>
                                     <input type="text" class="form-control" id="form20" asp-for="Ubicacion">
                             </div>
+
+
                             <div class="form-group">
                                 <label >Categoría</label>
-                                <select asp-for="CategoriaId" class="form-control">
+                                <select asp-for="CategoriasId" class="form-control">
                                     @foreach (var item in CategoriaAsiga)
                                     {
-                                        <option value="@item.Id" id="CategoriaId">@item.Nombre</option>
+                                        <option value="@item.Id" id="CategoriasId">@item.Nombre</option>
                                     }
                                 </select>
                             </div>

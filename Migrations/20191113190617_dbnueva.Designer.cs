@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiscoveryPlants.Migrations
 {
     [DbContext(typeof(DiscoveryContext))]
-    [Migration("20191110215439_data")]
-    partial class data
+    [Migration("20191113190617_dbnueva")]
+    partial class dbnueva
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,8 @@ namespace DiscoveryPlants.Migrations
                     b.Property<string>("Correo")
                         .IsRequired();
 
+                    b.Property<int>("CuentaB");
+
                     b.Property<string>("Direccion")
                         .IsRequired();
 
@@ -61,9 +63,7 @@ namespace DiscoveryPlants.Migrations
                     b.Property<string>("Caracteristicas")
                         .IsRequired();
 
-                    b.Property<int?>("CategoriaAsigId");
-
-                    b.Property<int>("CategoriaId");
+                    b.Property<int>("CategoriasId");
 
                     b.Property<DateTime>("FechaRegistro");
 
@@ -81,7 +81,7 @@ namespace DiscoveryPlants.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaAsigId");
+                    b.HasIndex("CategoriasId");
 
                     b.ToTable("PlantasTab");
                 });
@@ -245,9 +245,10 @@ namespace DiscoveryPlants.Migrations
 
             modelBuilder.Entity("DiscoveryPlants.Models.Plantas", b =>
                 {
-                    b.HasOne("DiscoveryPlants.Models.Categorias", "CategoriaAsig")
+                    b.HasOne("DiscoveryPlants.Models.Categorias", "Categorias")
                         .WithMany("LPlantas")
-                        .HasForeignKey("CategoriaAsigId");
+                        .HasForeignKey("CategoriasId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

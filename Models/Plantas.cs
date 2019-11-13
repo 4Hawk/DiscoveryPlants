@@ -18,9 +18,9 @@ namespace DiscoveryPlants.Models
 
         public string Ubicacion { get; set; }
 
-        public Categorias CategoriaAsig { get; set; }
+        public Categorias Categorias { get; set; }
         public string InfoAdicional{get;set;}
-        public int CategoriaId { get; set; }
+        public int CategoriasId { get; set; }
         public DateTime FechaRegistro { get; set; }
 
         public Plantas()

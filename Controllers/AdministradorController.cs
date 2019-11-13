@@ -4,6 +4,7 @@ using DiscoveryPlants.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace DiscoveryPlants.Controllers
 {
@@ -21,9 +22,10 @@ namespace DiscoveryPlants.Controllers
 
         
 
-      public IActionResult RegistrarCategoria(int p)
+      public IActionResult RegistrarCategoria()
       {
-        //TODO: Implement Realistic Implementation
+        var CatPlantas = _context.CategoriasTab.ToList();
+        ViewBag.NombreCat= CatPlantas;
         return View();
       }
 
@@ -62,6 +64,15 @@ namespace DiscoveryPlants.Controllers
             }
             return View(on);
           
+        }
+
+        public IActionResult EliminarCat(int codigo)
+        {
+          var loc=_context.CategoriasTab.Find(codigo);
+          _context.Remove(loc);
+          _context.SaveChanges();
+          
+          return View();
         }
     }
 }

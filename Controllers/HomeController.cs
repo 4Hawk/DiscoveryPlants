@@ -40,12 +40,27 @@ namespace DiscoveryPlants.Controllers
             return View(m);
         }
 
+        public IActionResult PlantasDoc(int codigo)
+            {
+                var planta= _context.PlantasTab.Include(x=>x.Categorias).Where(x=>x.Id==codigo).ToList();
+                var viewModel = new Listas();
+                viewModel.ListPlantas = planta;
+                return View(viewModel);
+            }
 
         [HttpPost]
         public IActionResult MensajeDonar(int code)
             {
-                var codigo = _context.OngsTab.Where(x=>x.Id==code).ToList();
-                TempData["cod"] = "La cuenta Bancaria de la ONG elegida es:"+codigo;
+                var codigo = _context.OngsTab.First(x=>x.Id==code).CuentaB;
+                if(codigo==0){
+                  
+                  TempData["cod"] = "No hay ONG seleccionadas";
+                }else{
+                  TempData["cod"] = "La cuenta Bancaria de la ONG elegida es:"+codigo;
+                   
+                  
+                }
+                
                 return RedirectToAction("Donar","Home");  
             }
 
@@ -85,13 +100,7 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
 
-        public IActionResult PlantasDoc(int codigo)
-        {
-            var planta= _context.PlantasTab.Include(x=>x.CategoriaAsig).Where(x=>x.Id==codigo).ToList();
-            var viewModel = new Listas();
-            viewModel.ListPlantas = planta;
-            return View(viewModel);
-        }
+       
         
 
         public IActionResult PanelUsuario()

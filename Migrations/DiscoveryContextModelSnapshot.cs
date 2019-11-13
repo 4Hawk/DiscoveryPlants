@@ -61,9 +61,7 @@ namespace DiscoveryPlants.Migrations
                     b.Property<string>("Caracteristicas")
                         .IsRequired();
 
-                    b.Property<int?>("CategoriaAsigId");
-
-                    b.Property<int>("CategoriaId");
+                    b.Property<int>("CategoriasId");
 
                     b.Property<DateTime>("FechaRegistro");
 
@@ -81,7 +79,7 @@ namespace DiscoveryPlants.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaAsigId");
+                    b.HasIndex("CategoriasId");
 
                     b.ToTable("PlantasTab");
                 });
@@ -245,9 +243,10 @@ namespace DiscoveryPlants.Migrations
 
             modelBuilder.Entity("DiscoveryPlants.Models.Plantas", b =>
                 {
-                    b.HasOne("DiscoveryPlants.Models.Categorias", "CategoriaAsig")
+                    b.HasOne("DiscoveryPlants.Models.Categorias", "Categorias")
                         .WithMany("LPlantas")
-                        .HasForeignKey("CategoriaAsigId");
+                        .HasForeignKey("CategoriasId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

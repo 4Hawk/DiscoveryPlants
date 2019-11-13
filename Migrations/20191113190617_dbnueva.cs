@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DiscoveryPlants.Migrations
 {
-    public partial class DBPlantas : Migration
+    public partial class dbnueva : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,7 +69,8 @@ namespace DiscoveryPlants.Migrations
                     Nombre = table.Column<string>(nullable: false),
                     Correo = table.Column<string>(nullable: false),
                     Direccion = table.Column<string>(nullable: false),
-                    Telefono = table.Column<int>(nullable: false)
+                    Telefono = table.Column<int>(nullable: false),
+                    CuentaB = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -193,19 +194,19 @@ namespace DiscoveryPlants.Migrations
                     Caracteristicas = table.Column<string>(nullable: false),
                     Foto = table.Column<string>(nullable: false),
                     Ubicacion = table.Column<string>(nullable: true),
-                    CategoriaAsigId = table.Column<int>(nullable: true),
                     InfoAdicional = table.Column<string>(nullable: true),
-                    CategoriaId = table.Column<int>(nullable: false)
+                    CategoriasId = table.Column<int>(nullable: false),
+                    FechaRegistro = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PlantasTab", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PlantasTab_CategoriasTab_CategoriaAsigId",
-                        column: x => x.CategoriaAsigId,
+                        name: "FK_PlantasTab_CategoriasTab_CategoriasId",
+                        column: x => x.CategoriasId,
                         principalTable: "CategoriasTab",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -246,9 +247,9 @@ namespace DiscoveryPlants.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlantasTab_CategoriaAsigId",
+                name: "IX_PlantasTab_CategoriasId",
                 table: "PlantasTab",
-                column: "CategoriaAsigId");
+                column: "CategoriasId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

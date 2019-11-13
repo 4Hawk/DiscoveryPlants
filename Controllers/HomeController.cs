@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DiscoveryPlants.Models;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace DiscoveryPlants.Controllers
 {
@@ -44,7 +44,7 @@ namespace DiscoveryPlants.Controllers
         [HttpPost]
         public IActionResult MensajeDonar(int code)
             {
-                var codigo = _context.OngsTab.Where(x=>x.Id==code).Select(z=>z.CuentaB);
+                var codigo = _context.OngsTab.Where(x=>x.Id==code).ToList();
                 TempData["cod"] = "La cuenta Bancaria de la ONG elegida es:"+codigo;
                 return RedirectToAction("Donar","Home");  
             }
@@ -87,7 +87,7 @@ namespace DiscoveryPlants.Controllers
 
         public IActionResult PlantasDoc(int codigo)
         {
-            var planta= _context.PlantasTab.Where(x=>x.Id==codigo).ToList();
+            var planta= _context.PlantasTab.Include(x=>x.CategoriaAsig).Where(x=>x.Id==codigo).ToList();
             var viewModel = new Listas();
             viewModel.ListPlantas = planta;
             return View(viewModel);

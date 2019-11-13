@@ -1,6 +1,6 @@
 @model Plantas
 @{
-    var CategoriaAsig = (List<Categorias>)ViewBag.Categorias;
+    var CategoriaAsiga = (List<Categorias>)ViewBag.Categorias;
 }
 <div class="container py-5">
     <div class="row">
@@ -34,11 +34,11 @@
                                     <input type="text" class="form-control" id="form20" asp-for="Ubicacion">
                             </div>
                             <div class="form-group">
-                                <label asp-for="CategoriaAsig"></label>
+                                <label >Categoría</label>
                                 <select asp-for="CategoriaId" class="form-control">
-                                    @foreach (var item in CategoriaAsig)
+                                    @foreach (var item in CategoriaAsiga)
                                     {
-                                        <option value="@item.Id">@item.Nombre</option>
+                                        <option value="@item.Id" id="CategoriaId">@item.Nombre</option>
                                     }
                                 </select>
                             </div>

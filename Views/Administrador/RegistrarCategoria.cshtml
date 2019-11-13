@@ -1,0 +1,32 @@
+@model Categorias;
+
+ @if (TempData["mensaje"] != null) {
+    <div class="alert alert-success py-3">
+        @TempData["mensaje"]
+    </div>
+}
+ 
+
+
+
+<div class="col-md-10 py-5">
+            <div class="row" >
+                 <div class="col-md-12"><h1>Registrar Categoria<hr></h1></div>
+                    <form method="post" asp-controller="administrador" asp-action="registrarcategoria" class="col-md-8">
+                         <div class="form-group"> 
+                                <label for="form16" asp-for="Nombre"></label> 
+                                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
+                        </div>
+                    <div class="py-3"><button class="btn btn-primary py-3">Registrar Categoria</button></div>
+                    
+                        
+                    </form>
+            </div>
+            
+             <div class="row" >
+                 <h3>Categorías Existentes</h3>
+             </div>
+            
+
+
+        </div>

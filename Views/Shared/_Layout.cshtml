@@ -32,7 +32,7 @@
             <a class="nav-link text-light" asp-controller="home" asp-action="ListadoP"><b>Plantas</b></a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" asp-controller="home" asp-action="consejos"><b>Consejos</b></a>
+            <a class="nav-link text-light" asp-controller="home" asp-action="consejos"><b>Consejos</b></a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link text-light" asp-controller="Home" asp-action="SobreNosotros" ><b>Sobre Nosotros</b></a>
@@ -44,10 +44,17 @@
           </li>
           }
           @if (User.IsInRole("dba")){
-            
-             <li class="nav-item mx-2 text-light">
-              <a class="nav-link" asp-controller="cuenta" asp-action="paneldba"><b>Panel de Control</b></a>
-            </li>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="nav-item mx-2 text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <b>Panel de Control</b>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item bg-success text-light border border-light" asp-controller="cuenta" asp-action="paneldba">Usuarios y Roles</a>
+                <a class="dropdown-item bg-success text-light border border-light" asp-controller="administrador" asp-action="registrarong">Registrar ONG</a>
+                <a class="dropdown-item bg-success text-light border border-light" asp-controller="administrador" asp-action="registrarcategoria">Registrar Categoría de Plantas</a>
+              </div>
+            </div>
+             
           }
         </ul>
          @if (User.Identity.IsAuthenticated) {

@@ -19,7 +19,13 @@ namespace DiscoveryPlants.Controllers
 
         
 
-      
+      public IActionResult RegistrarCategoria(int p)
+      {
+        //TODO: Implement Realistic Implementation
+        return View();
+      }
+
+
         
 
         [HttpPost]
@@ -28,14 +34,20 @@ namespace DiscoveryPlants.Controllers
           if (ModelState.IsValid) {
                 _context.Add(ca);
                 _context.SaveChanges();
-                return RedirectToAction("cuenta","paneldba");
+                TempData["mensaje"] = "La Categoria de Planta fue registrada exitosamente";
+                return RedirectToAction("registrarcategoria","administrador", new{p=1});
             }
             return View(ca);
           
         }
 
 
-        
+        public IActionResult RegistrarOng()
+        {
+          //TODO: Implement Realistic Implementation
+          
+          return View();
+        }
 
         [HttpPost]
         public IActionResult RegistrarOng(Ongs on)
@@ -43,7 +55,8 @@ namespace DiscoveryPlants.Controllers
           if (ModelState.IsValid) {
                 _context.Add(on);
                 _context.SaveChanges();
-                return RedirectToAction("cuenta","paneldba");
+                TempData["mensaje"] = "La ONG fue registrada satisfactoriamente";
+                return RedirectToAction("registrarong","administrador");
             }
             return View(on);
           

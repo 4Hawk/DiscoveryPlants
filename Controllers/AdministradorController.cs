@@ -3,9 +3,11 @@ using System;
 using DiscoveryPlants.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DiscoveryPlants.Controllers
 {
+    [Authorize(Roles="dba")]
     public class AdministradorController:Controller
     {
 

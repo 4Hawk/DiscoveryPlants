@@ -1,4 +1,13 @@
  @using Microsoft.AspNetCore.Identity;
+
+
+  @if (TempData["mensaje"] != null) {
+    <div class="alert alert-success py-3">
+        @TempData["mensaje"]
+    </div>
+}
+
+
  <div class="py-5">
     <div class="container">
       <div class="row">

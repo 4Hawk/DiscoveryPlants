@@ -41,10 +41,23 @@ namespace DiscoveryPlants.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult MensajeDonar(int code)
+            {
+                var codigo = _context.OngsTab.Where(x=>x.Id==code).Select(z=>z.CuentaB);
+                TempData["cod"] = "La cuenta Bancaria de la ONG elegida es:"+codigo;
+                return RedirectToAction("Donar","Home");  
+            }
+
         public IActionResult Donar()
         {
-            return View();
+            var listaCat = _context.OngsTab.ToList();
+            return View(listaCat);
         }
+
+
+
+        
 
         public IActionResult ListadoP()
         {

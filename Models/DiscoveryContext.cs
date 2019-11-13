@@ -11,6 +11,8 @@ namespace DiscoveryPlants.Models
         public DbSet<Ongs> OngsTab {get;set;}
         public DbSet<Categorias> CategoriasTab {get;set;}
 
+       
+
         public DiscoveryContext(DbContextOptions<DiscoveryContext> o): base(o){
         }
         

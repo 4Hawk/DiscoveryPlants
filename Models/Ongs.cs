@@ -16,5 +16,7 @@ namespace DiscoveryPlants.Models
         public string Direccion { get; set; }
         [Required]
         public int Telefono { get; set; }
+
+        public int CuentaB { get; set; }
     }
 }

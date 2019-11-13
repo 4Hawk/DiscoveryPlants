@@ -1,12 +1,33 @@
+ @model List<Ongs>;
+ 
+ 
  <div class="py-5 text-center align-items-center d-flex" style="background-image: linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">
     <div class="container py-5">
       <div class="row">
         <div class="col-md-8 mx-auto">
           <h1 class="display-3 mb-4" >Estas a punto de Donar</h1>
-          <div class="form-group"> <label for="form16">Escoge la organización a la que desea donar</label> <input type="text" class="form-control" id="form16" placeholder="Escoge">
-            <div class="form-group"><label></label></div>
-          </div> <a href="#" class="btn btn-lg mx-1 btn-success">Generar Código</a>
-          <p class="">Actualmente solo aceptas donaciones vía Pago Efectivo<br></p>
+          <form method="post" asp-controller="home" asp-action="mensajedonar">
+              <div class="form-group"> <label for="form16">Escoge la organización a la que desea donar</label> <div class="form-group">
+                <select  class="form-control">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id" id="code" name="code">@item.Nombre</option>
+                    }
+                </select>
+              
+              <button><span class="btn btn-lg mx-1 btn-success">Generar Código</span></button>
+                <div class="alert alert-info" role="alert">
+                  
+                </div>
+              
+              <p class="">Actualmente solo aceptamos donaciones por depósito<br></p>
+          </form>
+          @{
+                if(TempData["cod"]!=null){
+                  <div>@TempData["cod"]</div>
+                  
+                }
+          }
         </div>
       </div>
       <div class="row">

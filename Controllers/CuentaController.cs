@@ -23,28 +23,18 @@ namespace DiscoveryPlants.Controllers
             _rm = rm;
         }
 
-        public IActionResult AsociarRol()
-        {
-            ViewBag.Usuarios = _um.Users.ToList();
-            ViewBag.Roles = _rm.Roles.ToList();
-
-            return View("Administrador","Index");
-        }
-
+        
 
         [HttpPost]
         public IActionResult AsociarRol(string usuario, string rol) {
             var user = _um.FindByIdAsync(usuario).Result;
 
             var resultado = _um.AddToRoleAsync(user, rol).Result;
-
-            return RedirectToAction("cuenta", "paneldba");
+            TempData["mensaje"] = "El Rol fue asociado exitosamente";  
+            return RedirectToAction("paneldba", "cuenta");
         }
 
-        public IActionResult CrearRol()
-        {
-            return View();
-        }
+        
 
         [HttpPost]
         public IActionResult CrearRol(string nombre)
@@ -53,8 +43,10 @@ namespace DiscoveryPlants.Controllers
             rol.Name = nombre;
 
             var resultado = _rm.CreateAsync(rol).Result;
+            
+            TempData["mensaje"] = "El Rol fue creado exitosamente";            
 
-            return RedirectToAction("index", "Administrador");
+            return RedirectToAction("paneldba","cuenta");
         }
 
         

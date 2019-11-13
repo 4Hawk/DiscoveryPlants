@@ -3,14 +3,16 @@ using System;
 using DiscoveryPlants.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DiscoveryPlants.Migrations
 {
     [DbContext(typeof(DiscoveryContext))]
-    partial class DiscoveryContextModelSnapshot : ModelSnapshot
+    [Migration("20191113141350_CuentaB")]
+    partial class CuentaB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

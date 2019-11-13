@@ -1,15 +1,18 @@
-  <div class="py-5" style="background-image: url(https://images.pexels.com/photos/3146135/pexels-photo-3146135.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940); background-size: cover; background-position: left top; background-repeat: repeat;">
+@model Listas  
+@foreach (var item in Model.ListPlantas)
+{
+    <div class="py-5" style="background-image: url(https://images.pexels.com/photos/3146135/pexels-photo-3146135.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940); background-size: cover; background-position: left top; background-repeat: repeat;">
     <div class="container">
       <div class="row">
         <div class="col-md-9" style="">
-          <h1 class="display-4" style="">Nombre de la Planta:</h1>
+          <h1 class="display-4" style="">@item.Nombre</h1>
           <h2 class="">Pequeña descripcion</h2>
           <div class="row">
             <div class="col-md-12">
               <h1 class="" >Caracteristicas</h1>
               <div class="row">
                 <div class="col-md-12">
-                  <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.</p>
+                  <p class="">@item.Caracteristicas</p>
                 </div>
               </div>
             </div>
@@ -19,7 +22,7 @@
               <h1 class="">Usos</h1>
               <div class="row">
                 <div class="col-md-12">
-                  <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.</p>
+                  <p class="">@item.Usos</p>
                 </div>
               </div>
             </div>
@@ -29,26 +32,16 @@
               <h1 class="">Ubicación</h1>
               <div class="row">
                 <div class="col-md-12">
-                  <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="" style="">Datos Curiosos u Observaciones</h1>
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.</p>
+                  <p class="">@item.Ubicacion</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
+          <div class="card"> <img class="card-img-top" src="@item.Foto" alt="Card image cap">
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Imagen referencial de la planta</p>
             </div>
           </div>
         </div>
@@ -69,3 +62,5 @@
       </div>
     </div>
   </div>
+}
+  

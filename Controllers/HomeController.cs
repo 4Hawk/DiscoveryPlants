@@ -69,10 +69,12 @@ namespace DiscoveryPlants.Controllers
             return View();
         }
 
-        public IActionResult PlantasDoc()
+        public IActionResult PlantasDoc(int codigo)
         {
-
-            return View();
+            var planta= _context.PlantasTab.Where(x=>x.Id==codigo).ToList();
+            var viewModel = new Listas();
+            viewModel.ListPlantas = planta;
+            return View(viewModel);
         }
         
 

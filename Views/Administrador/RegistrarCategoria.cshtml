@@ -23,7 +23,8 @@
                         <th>@item.Nombre</th>
                         <th> 
                             <a asp-controller="administrador" asp-action="eliminarcat" asp-route-codigo="@item.Id">Eliminar</a>
-                            <a href="#ventana" data-toggle="modal">Modificar</a>
+                            <div>
+                            <a href="#ventana" data-toggle="modal" >Modificar</a>
                             <div class="modal fade" id="ventana">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -42,6 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </th>
                     </tr> 

@@ -33,15 +33,35 @@ namespace DiscoveryPlants.Controllers
         
 
         [HttpPost]
-        public IActionResult RegistrarCategoria(Categorias ca)
+        public IActionResult RegistrarCategoria(int codigo, Categorias l)
         {
+          var  actu= _context.CategoriasTab.Find(codigo);
+          actu.Nombre=l.Nombre;
+          
+          _context.SaveChanges();
+          return RedirectToAction("RegistrarCategoria","Administrador");
+          
+        }
+        public IActionResult RegistrarCategoria2()
+      {
+        
+        return View();
+      }
+
+
+        
+
+        [HttpPost]
+        public IActionResult RegistrarCategoria2( Categorias ca)
+        {
+          
           if (ModelState.IsValid) {
                 _context.Add(ca);
                 _context.SaveChanges();
                 TempData["mensaje"] = "La Categoria de Planta fue registrada exitosamente";
                 return RedirectToAction("registrarcategoria","administrador", new{p=1});
             }
-            return View(ca);
+            return RedirectToAction("RegistrarCategoria","Administrador");
           
         }
 
@@ -72,7 +92,8 @@ namespace DiscoveryPlants.Controllers
           _context.Remove(loc);
           _context.SaveChanges();
           
-          return View();
+          return RedirectToAction("RegistrarCategoria","Administrador");
         }
+        
     }
 }

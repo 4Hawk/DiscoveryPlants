@@ -19,7 +19,7 @@
 
                     <div class="form-group">
                         <label>Nombre del rol</label>
-                        <input type="text" name="nombre" class="form-control">
+                        <input type="text" name="nombre" class="form-control" required>
                     </div>
                     
                     <div class="py-3"><button class="btn btn-primary">Crear rol</button></div>
@@ -29,11 +29,11 @@
         </div>
         <div class="col-md-6" >
             <div class="row" >
-                <h1>Asociar Rol<hr></h1>
+                <h1>Asociar Rol<hr></h1><br><br><br>
 
                 <form method="post" asp-controller="cuenta" asp-action="asociarrol">
 
-                    <div class="form-group">
+                    <div class="form-group m-2">
                         <label>Usuario</label>        
                         <select class="form-control" name="usuario">
                              @foreach (var item in (List<IdentityUser>)ViewBag.Usuarios)
@@ -43,7 +43,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group m-2">
                         <label>Rol</label>        
                         <select class="form-control" name="rol">
                              @foreach (var item in (List<IdentityRole>)ViewBag.Roles)

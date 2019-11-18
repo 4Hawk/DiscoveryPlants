@@ -1,0 +1,58 @@
+@model Categorias;
+@if (TempData["mensaje"] != null) {
+    <div class="alert alert-success py-3">
+        @TempData["mensaje"]
+    </div>
+}
+
+@{
+    var cate= (List<Categorias>)ViewBag.NombreCat;
+}
+
+
+<div class="col-md-10 py-5">
+            <div class="row" >
+                 <div class="col-md-12"><h1>Registrar Categoria<hr></h1></div>
+                    <form method="post" asp-controller="administrador" asp-action="indexcategoria" class="col-md-8">
+                         <div class="form-group"> 
+                                <label for="form16" asp-for="Nombre"></label> 
+                                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
+                        </div>
+                    <div class="py-3"><button class="btn btn-primary py-3">Registrar Categoria</button></div>
+                    
+                        
+                    </form>
+            </div>
+
+            <div class="row">
+                <h1 class="block">Listado de Categorias<hr></h1><br>
+                <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col" class="text-light">Id</th>
+                    <th scope="col" class="text-light">Nombre Categoria</th>
+                    <th scope="col"  class="text-light">Opción 1</th>
+                    <th scope="col" class="text-light">Opción 2</th>
+                    
+                    </tr>
+                </thead>
+
+                 <tbody>
+                 @foreach (var item in cate)
+                 {
+                     
+                    <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Nombre</td>
+                    <td><a asp-controller="administrador" asp-action="eliminarcat" asp-route-codigo="@item.Id">Eliminar</a></td>
+                    <td><a  asp-controller="administrador" asp-action="VistaCategoriaAct"  asp-route-codigo="@item.Id">Modificar</a></td>
+                    </tr>
+
+                
+                   
+                 }
+             
+            </tbody>
+            </table>
+        </div>
+</div>

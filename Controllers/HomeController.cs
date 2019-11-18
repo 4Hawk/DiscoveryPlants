@@ -51,23 +51,26 @@ namespace DiscoveryPlants.Controllers
         [HttpPost]
         public IActionResult MensajeDonar(int code)
             {
+                var mensaje = "";
                 var codigo = _context.OngsTab.First(x=>x.Id==code).CuentaB;
                 if(codigo==0){
                   
-                  TempData["cod"] = "No hay ONG seleccionadas";
+                 mensaje = "No hay ONG seleccionadas";
                 }else{
-                  TempData["cod"] = "La cuenta Bancaria de la ONG elegida es:"+codigo;
+                  mensaje = "La cuenta Bancaria de la ONG elegida es:"+codigo;
                    
                   
                 }
                 
-                return RedirectToAction("Donar","Home");  
+                return RedirectToAction("donar","home", new{mensaje});  
             }
 
-        public IActionResult Donar()
+        public IActionResult Donar(string mensaje)
         {
             var listaCat = _context.OngsTab.ToList();
+            ViewBag.mensaje = mensaje;
             return View(listaCat);
+
         }
 
 

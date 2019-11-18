@@ -16,15 +16,11 @@
                 </select>
               
               <button><span class="btn btn-lg mx-1 btn-success">Generar Código</span></button>
-                <div class="alert alert-info" role="alert">
-                  
-                </div>
-              
               <p class="">Actualmente solo aceptamos donaciones por depósito<br></p>
           </form>
           @{
-                if(TempData["cod"]!=null){
-                  <div>@TempData["cod"]</div>
+                if(ViewBag.mensaje!=null){
+                  <div>@ViewBag.mensaje</div>
                   
                 }
           }

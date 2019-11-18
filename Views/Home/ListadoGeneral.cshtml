@@ -1,4 +1,7 @@
 @model Listas
+@{
+    var nom = (Plantas)ViewBag.Plantas;
+}
 <div class="p-0 py-2 m-0 my-2">
     <div class="container">
       <div class="row">
@@ -11,24 +14,50 @@
     </div>
   </div>
 <div class="m-0 my-1 py-2">
-    <div class="container">
-        <div class="row">
-            @foreach (var item in Model.ListPlantas )
-            {
-                <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="@item.Foto" style="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h2 class="text-center">@item.Nombre</h2>
-                                </div>
-                            </div>
-                           
-                            <div class="row">
-                                <div class="col-md-12"><a class="btn btn-secondary d-flex justify-content-center" asp-action="PlantasDoc" asp-route-codigo="@item.Id">Leer más</a></div>
-                            </div>
-                    </div>
-            }
-
-        </div>  
-      
+  <form action="Buscar"  method="post">
+    <div class="row m-5 p-3">
+      <input type="text" placeholder="Buscar por nombre" name="nombreplanta" style="text-align: center;"> 
+      <input type="submit" placeholder="BUSCAR" asp-route-nombre="nombreplanta">
     </div>
+  </form>
+  @if(nom==null)
+    {
+      <div class="container">
+          <div class="row">
+              @foreach (var item in Model.ListPlantas )
+              {
+                  <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="@item.Foto" style="">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <h2 class="text-center">@item.Nombre</h2>
+                                  </div>
+                              </div>
+                            
+                              <div class="row">
+                                  <div class="col-md-12"><a class="btn btn-secondary d-flex justify-content-center" asp-action="PlantasDoc" asp-route-codigo="@item.Id">Leer más</a></div>
+                              </div>
+                      </div>
+              }
+
+          </div>  
+        
+      </div>
+    }
+  else
+      {
+        <div class="row">
+                  <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="@nom.Foto" style="">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <h2 class="text-center">@nom.Nombre</h2>
+                                  </div>
+                              </div>
+                            
+                              <div class="row">
+                                  <div class="col-md-12"><a class="btn btn-secondary d-flex justify-content-center" asp-action="PlantasDoc" asp-route-codigo="@nom.Id">Leer más</a></div>
+                              </div>
+                      </div>
+
+          </div>  
+      }
 </div>

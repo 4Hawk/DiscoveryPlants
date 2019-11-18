@@ -57,7 +57,7 @@ namespace DiscoveryPlants.Controllers
                   
                  mensaje = "No hay ONG seleccionadas";
                 }else{
-                  mensaje = "La cuenta Bancaria de la ONG elegida es:"+codigo;
+                  mensaje = "La cuenta Bancaria de la ONG elegida es: "+codigo;
                    
                   
                 }

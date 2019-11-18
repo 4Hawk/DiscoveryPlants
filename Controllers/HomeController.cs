@@ -94,7 +94,14 @@ namespace DiscoveryPlants.Controllers
             viewModel.ListPlantas = Plantas;
             return View(viewModel);
         }
-
+        
+        [HttpPost]
+        public IActionResult Buscar (string nombre)
+        {
+            var planta = _context.PlantasTab.Find(nombre);
+            ViewBag.Plantas = planta;
+            return View();
+        }
         public IActionResult SobreNosotros()
         {
             return View();

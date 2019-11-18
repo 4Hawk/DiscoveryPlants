@@ -8,7 +8,7 @@
           <h1 class="display-3 mb-4" >Estas a punto de Donar</h1>
           <form method="post" asp-controller="home" asp-action="mensajedonar">
               <div class="form-group"> <label for="form16">Escoge la organización a la que desea donar</label> <div class="form-group">
-                <select name="code" class="form-control" required>
+                <select name="code" class="form-control">
                     @foreach (var item in Model)
                     {
                         <option value="@item.Id" id="code" >@item.Nombre</option>

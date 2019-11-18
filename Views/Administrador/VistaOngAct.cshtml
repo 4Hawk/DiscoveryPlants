@@ -1,0 +1,40 @@
+ @model Ongs;
+@{
+    var item = (Ongs)ViewBag.OngE;
+}
+ 
+<div class="content py-5 px-4 mx-3 my-2">
+    <div class="row">
+        <h2 class="title">Ingrese nuevo nombre de categoría<hr></h2>
+        <form  method="post" asp-controller="administrador" asp-action="actualizarong" class="col-md-8">
+
+                    <div class="form-group"> 
+                        <label for="form16" asp-for="Nombre"></label> 
+                        <input type="text" class="form-control" id="form16" value="@item.Nombre" asp-for="Nombre">
+                    </div>
+                    <div class="form-group"> 
+                        <label for="form16" asp-for="Correo"></label> 
+                        <input type="email" class="form-control" id="form16" value="@item.Correo" asp-for="Correo" required>
+                    </div>
+                    <div class="form-group"> 
+                        <label for="form16" asp-for="Direccion"></label> 
+                        <input type="text" class="form-control" id="form16" value="@item.Direccion" asp-for="Direccion" required>
+                    </div>
+                    <div class="form-group"> 
+                        <label for="form16" asp-for="Telefono"></label> 
+                        <input type="text" class="form-control" id="form16" value="@item.Telefono" asp-for="Telefono" required>
+                    </div>
+                    <div class="form-group"> 
+                        <label for="form16" asp-for="CuentaB"></label> 
+                        <input type="text" class="form-control" id="form16" value="@item.CuentaB" asp-for="CuentaB" required>
+                    </div>
+                    <div class="py-3"><button class="btn btn-primary py-3" asp-controller="administrador" asp-action="actualizarong" asp-route-codigo="@item.Id">Confirmar</button></div>
+                </form>
+    </div>
+                
+            </div>
+
+
+             
+        
+            

@@ -77,9 +77,14 @@ namespace DiscoveryPlants.Controllers
         public IActionResult ListadoP()
         {
             var Plantas = _context.PlantasTab.OrderByDescending(x=>x.FechaRegistro).Take(3).ToList();
-            var viewModel = new Listas();
-            viewModel.ListPlantas = Plantas;
-            return View(viewModel);
+            if(Plantas==null){
+               return RedirectToAction("plantas","error"); 
+            }else{
+                var viewModel = new Listas();
+                viewModel.ListPlantas = Plantas;
+                return View(viewModel);
+            }
+            
         }
 
         public IActionResult Consejos()
@@ -94,14 +99,29 @@ namespace DiscoveryPlants.Controllers
             viewModel.ListPlantas = Plantas;
             return View(viewModel);
         }
+
         
+        /*
+        public IActionResult ResultadoBusqueda()
+        {
+          //TODO: Implement Realistic Implementation
+          return View();
+        }
+
+
+
         [HttpPost]
         public IActionResult Buscar (string nombre)
         {
-            var planta = _context.PlantasTab.Find(nombre);
-            ViewBag.Plantas = planta;
-            return View();
-        }
+            var planta = _context.PlantasTab.Where(x=>x.Nombre==nombre);
+            if(planta==null){
+                return RedirectToAction("plantas","error");
+            }else{
+                ViewBag.PlantasE = planta;
+                return RedirectToAction("Resultadobusqueda","home");
+            }
+            
+        }*/
         public IActionResult SobreNosotros()
         {
             return View();

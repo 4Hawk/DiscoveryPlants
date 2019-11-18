@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiscoveryPlants.Migrations
 {
     [DbContext(typeof(DiscoveryContext))]
-    [Migration("20191117172013_actual")]
-    partial class actual
+    [Migration("20191118023916_Db")]
+    partial class Db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

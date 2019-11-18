@@ -1,0 +1,21 @@
+@model Plantas;
+
+@{
+ var pla = (Plantas)ViewBag.PlantasE;
+}
+
+<div class="col-md-3 col-6 px-2 py-5"> <img class="img-fluid d-block" src="@pla.Foto" style="">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">@pla.Nombre</h2>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6"><a class="btn btn-secondary d-flex justify-content-center" asp-action="PlantasDoc" asp-route-codigo="@pla.Id">Leer más</a></div>
+        </div>
+
+        @if (User.IsInRole("dba")){
+            <div class="col-md-12"><a class="btn btn-secondary d-flex justify-content-center" asp-controller="administrador" asp-action="EliminarPlanta" asp-route-codigo="@pla.Id">Eliminar</a></div>
+        }
+</div>

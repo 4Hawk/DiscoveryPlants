@@ -10,29 +10,29 @@
             <div asp-validation-summary="All"></div>
             <div class="form-group"> 
                 <label for="form16" asp-for="Nombre"></label> 
-                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
+                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre" required>
             </div>
             <div class="form-group">
                 <label for="form17" asp-for="Apellido"></label>
-                <input type="text" class="form-control" id="form17" placeholder="Apellidos" asp-for="Apellido"> 
+                <input type="text" class="form-control" id="form17" placeholder="Apellidos" asp-for="Apellido" required> 
             </div>
             <div class="form-group">
                 <label for="form18" asp-for="Correo"></label>
-                <input type="email" class="form-control" id="form18" placeholder="j.goethe@werther.com" asp-for="Correo">
+                <input type="email" class="form-control" id="form18" placeholder="j.goethe@werther.com" asp-for="Correo" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="form19" asp-for="ContraseñaP">Contraseña</label>
-                    <input type="password" class="form-control" id="form19" asp-for="ContraseñaP">
+                    <input type="password" class="form-control" id="form19" asp-for="ContraseñaP" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="form20" asp-for="ContraseñaS">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="form20" asp-for="ContraseñaS">
+                    <input type="password" class="form-control" id="form20" asp-for="ContraseñaS" required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="form21" value="on">
+                    <input class="form-check-input" type="checkbox" id="form21" value="on" required>
                     <label class="form-check-label" for="form21">Aceptas nuestros terminos y Condiciones</label>
                 </div>
             </div>

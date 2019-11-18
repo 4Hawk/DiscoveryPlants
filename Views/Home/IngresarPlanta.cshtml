@@ -12,32 +12,32 @@
                     </div>
                             <div class="form-group"> 
                                 <label for="form16" asp-for="Nombre"></label> 
-                                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre">
+                                <input type="text" class="form-control" id="form16" placeholder="Nombre" asp-for="Nombre" required>
                             </div>
                             <div class="form-group">
                                 <label for="form17" asp-for="Usos"></label>
                                
-                                <textarea asp-for="Usos" rows="3" id="form17" col="7" class="form-control" asp-for="Usos" placeholder="Usos"></textarea> 
+                                <textarea asp-for="Usos" rows="3" id="form17" col="7" class="form-control" asp-for="Usos" placeholder="Usos" required></textarea> 
                             </div>
                             <div class="form-group">
                                 <label for="form18" asp-for="Caracteristicas"></label>
                                 
-                                <textarea asp-for="Caracteristicas" id="form18" rows="7" col="7" class="form-control" asp-for="Caracteristicas" placeholder="Caracteristicas"></textarea>
+                                <textarea asp-for="Caracteristicas" id="form18" rows="7" col="7" class="form-control" asp-for="Caracteristicas" placeholder="Caracteristicas" required></textarea>
                             </div>
                            
                             <div class="form-group ">
                                     <label for="form19" asp-for="Foto"></label>
-                                    <input type="text" class="form-control" id="form19" asp-for="Foto">
+                                    <input type="text" class="form-control" id="form19" asp-for="Foto" required>
                             </div>
                             <div class="form-group ">
                                     <label for="form20" asp-for="Ubicacion"></label>
-                                    <input type="text" class="form-control" id="form20" asp-for="Ubicacion">
+                                    <input type="text" class="form-control" id="form20" asp-for="Ubicacion" required>
                             </div>
 
 
                             <div class="form-group">
                                 <label >Categoría</label>
-                                <select asp-for="CategoriasId" class="form-control">
+                                <select asp-for="CategoriasId" class="form-control" required>
                                     @foreach (var item in CategoriaAsiga)
                                     {
                                         <option value="@item.Id" id="CategoriasId">@item.Nombre</option>

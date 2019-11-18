@@ -43,23 +43,23 @@
                                             <form  method="post" asp-controller="administrador" asp-action="RegistrarOng" class="col-md-8">
                                                 <div class="form-group"> 
                                                     <label for="form16" asp-for="@item.Nombre"></label> 
-                                                    <input type="text" class="form-control" id="form16" value="@item.Nombre" asp-for="@item.Nombre">
+                                                    <input type="text" class="form-control" id="form16" value="@item.Nombre" asp-for="@item.Nombre" required>
                                                 </div>
                                                 <div class="form-group"> 
                                                     <label for="form16" asp-for="@item.Correo"></label> 
-                                                    <input type="text" class="form-control" id="form16" value="@item.Correo" asp-for="@item.Correo">
+                                                    <input type="text" class="form-control" id="form16" value="@item.Correo" asp-for="@item.Correo" required>
                                                 </div>
                                                 <div class="form-group"> 
                                                     <label for="form16" asp-for="@item.Direccion"></label> 
-                                                    <input type="text" class="form-control" id="form16" value="@item.Direccion" asp-for="@item.Direccion">
+                                                    <input type="text" class="form-control" id="form16" value="@item.Direccion" asp-for="@item.Direccion" required>
                                                 </div>
                                                 <div class="form-group"> 
                                                     <label for="form16" asp-for="@item.Telefono"></label> 
-                                                    <input type="text" class="form-control" id="form16" value="@item.Telefono" asp-for="@item.Telefono">
+                                                    <input type="text" class="form-control" id="form16" value="@item.Telefono" asp-for="@item.Telefono" required>
                                                 </div>
                                                 <div class="form-group"> 
                                                     <label for="form16" asp-for="@item.CuentaB"></label> 
-                                                    <input type="text" class="form-control" id="form16" value="@item.CuentaB" asp-for="@item.CuentaB">
+                                                    <input type="text" class="form-control" id="form16" value="@item.CuentaB" asp-for="@item.CuentaB" required>
                                                 </div>
                                                 <div class="py-3"><button class="btn btn-primary py-3" asp-route-codigo="@item.Id">Comfirmar</button></div>
                                             </form>

@@ -42,9 +42,9 @@ namespace DiscoveryPlants.Controllers
                 _context.Add(ca);
                 _context.SaveChanges();
                 TempData["mensaje"] = "La Categoria de Planta fue registrada exitosamente";
-                return RedirectToAction("registrarcategoria","administrador");
+                return RedirectToAction("indexcategoria","administrador");
             }
-            return RedirectToAction("IndexCategoria","Administrador");
+            return View(ca);
           
         }
 
@@ -137,6 +137,13 @@ namespace DiscoveryPlants.Controllers
         }
         
 
+        public IActionResult EliminarPlanta(int codigo)
+        {
+          var plant=_context.PlantasTab.Find(codigo);
+          _context.Remove(plant);
+          _context.SaveChanges();
+          return RedirectToAction("ListadoGeneral","Home");
+        }
       
 
     }
